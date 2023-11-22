@@ -7,14 +7,19 @@ use PHPUnit\Framework\TestCase;
 
 class ConvertHelperTest extends TestCase
 {
-    /** @test */
-    public function it_does_something()
+    public function testCentsToReal()
     {
         $centValue = 10000;
         $realValue = 100;
 
         $result = ConvertHelper::centsToReal($centValue);
         $this->assertEquals($realValue, $result);
+    }
+
+    public function testRealToCents()
+    {
+        $centValue = 10000;
+        $realValue = 100;
 
         $result = ConvertHelper::realToCents($realValue);
         $this->assertEquals($centValue, $result);
