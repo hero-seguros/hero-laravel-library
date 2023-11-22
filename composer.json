@@ -5,10 +5,18 @@
     "require": {
         "php": "^8.0"
     },
+    "require-dev": {
+        "phpunit/phpunit": "^9.0"
+    },
     "license": "Copyright",
     "autoload": {
         "psr-4": {
             "HeroSeguros\\HeroLaravelLibrary\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "HeroSeguros\\HeroLaravelLibrary\\Tests\\": "tests/"
         }
     },
     "authors": [
