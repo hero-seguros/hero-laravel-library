@@ -1,6 +1,6 @@
 {
     "name": "hero-seguros/hero-laravel-library",
-    "description": "Biblioteca Complementar para os projetos laravel da Hero S",
+    "description": "Biblioteca Complementar para os projetos laravel da Hero Seguros",
     "type": "library",
     "require": {
         "php": "^8.0"
