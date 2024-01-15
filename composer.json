@@ -1,9 +1,11 @@
 {
     "name": "hero-seguros/hero-laravel-library",
-    "description": "Biblioteca Complementar para os projetos laravel da Hero Seguros",
+    "description": "Biblioteca Complementar para os projetos laravel",
     "type": "library",
     "require": {
-        "php": "^8.0"
+        "php": "^8.0",
+        "ext-mbstring": "*",
+        "ext-openssl": "*"
     },
     "require-dev": {
         "phpunit/phpunit": "^9.0"
@@ -18,11 +20,5 @@
         "psr-4": {
             "HeroSeguros\\HeroLaravelLibrary\\Tests\\": "tests/"
         }
-    },
-    "authors": [
-        {
-            "name": "Mario de Moraes",
-            "email": "mario.neto@heroseguros.com.br"
-        }
-    ]
+    }
 }
