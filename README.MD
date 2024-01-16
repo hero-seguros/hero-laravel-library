@@ -3,7 +3,6 @@
 ## Requisitos
 - php 8 ou superior
 - Laravel 8 ou superior
-- 
 ## Instalação
 ```bash
 composer require hero-seguros/hero-laravel-library
