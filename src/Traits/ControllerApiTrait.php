@@ -2,6 +2,7 @@
 
 namespace HeroSeguros\HeroLaravelLibrary\Traits;
 
+use HeroSeguros\HeroLaravelLibrary\Exceptions\HeroException;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Log;
 
@@ -13,7 +14,7 @@ trait ControllerApiTrait
      * @param int $statusCode
      * @return JsonResponse
      */
-    protected function returnSuccess(array $data = [], string $customMessage = null, int $statusCode = 200): JsonResponse
+    protected function returnJsonSuccess(array $data = [], string $customMessage = null, int $statusCode = 200): JsonResponse
     {
         $response = [
             'success' => true,
@@ -32,9 +33,9 @@ trait ControllerApiTrait
      * @param \Exception $exception
      * @return JsonResponse
      */
-    protected function returnException(string $customMessage, \Exception $exception, int $statusCode = 500): JsonResponse
+    protected function returnJsonException(string $customMessage, \Exception $exception, int $statusCode = 500): JsonResponse
     {
-        $isHeroException = ($exception instanceof \App\Exceptions\HeroException);
+        $isHeroException = ($exception instanceof HeroException);
         $response = [
             'success' => false,
             'message' => ($isHeroException) ? $exception->getMessage() : $customMessage,
@@ -57,29 +58,5 @@ trait ControllerApiTrait
         }
 
         return response()->json($response, $statusCode);
-    }
-
-    /**
-     * @param string $customMessage
-     * @param \Exception $exception
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Foundation\Application
-     */
-    public function returnoViewError(string $customMessage, \Exception $exception)
-    {
-        $isHeroException = ($exception instanceof \App\Exceptions\HeroException);
-        if (!$isHeroException) {
-
-            $errorData = [
-                'message' => $exception->getMessage(),
-                'code' => $exception->getCode(),
-                'file' => $exception->getFile(),
-                'line' => $exception->getLine(),
-                'trace' => $exception->getTrace(),
-            ];
-
-            Log::error($exception->getMessage(), $errorData);
-        }
-
-        return view('Error')->with('errorMessage', (!$isHeroException) ? $customMessage : $exception->getMessage());
     }
 }
