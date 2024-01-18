@@ -4,9 +4,10 @@
     "description": "Library for Hero Seguros Laravel projects",
     "type": "library",
     "require": {
-        "php": "^7.4",
+        "php": "^7.4|^8.0",
         "illuminate/http": "^8.0|^9.0|^10.0",
         "illuminate/support": "^8.0|^9.0|^10.0",
+        "illuminate/console": "^8.0|^9.0|^10.0",
         "ext-mbstring": "*",
         "ext-openssl": "*"
     },
@@ -22,6 +23,13 @@
     "autoload-dev": {
         "psr-4": {
             "HeroSeguros\\HeroLaravelLibrary\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "HeroSeguros\\HeroLaravelLibrary\\HeroServiceProvider"
+            ]
         }
     }
 }
